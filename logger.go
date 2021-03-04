@@ -3,31 +3,33 @@ package logger
 import (
 	"encoding/json"
 	"log"
+	"os"
 )
 
 // Debug is shortcut to Event logger
-func Debug(event, msg string) (string, error) {
-	return Event("DEBUG", event, msg)
+func Debug(event, msg string) {
+	Event("DEBUG", event, msg)
 }
 
 // Info is shortcut to Event logger
-func Info(event, msg string) (string, error) {
-	return Event("INFO", event, msg)
+func Info(event, msg string) {
+	Event("INFO", event, msg)
 }
 
 // Warn is shortcut to Event logger
-func Warn(event, msg string) (string, error)  {
-	return Event("WARN", event, msg)
+func Warn(event, msg string) {
+	Event("WARN", event, msg)
 }
 
 // Error is shortcut to Event logger
-func Error(event, msg string) (string, error) {
-	return Event("ERROR", event, msg)
+func Error(event, msg string) {
+	Event("ERROR", event, msg)
 }
 
 // Fatal is shortcut to Event logger
-func Fatal(event, msg string) (string, error) {
-	return Event("FATAL", event, msg)
+func Fatal(event, msg string) {
+	Event("FATAL", event, msg)
+	os.Exit(1)
 }
 
 // Event in json format
@@ -64,4 +66,4 @@ func Println(thelog StructuredLog) (string, error) {
 	}
 
 	return "", ErrorPrintln
-} 
+}
