@@ -3,8 +3,8 @@ package logger
 import (
 	"errors"
 	"os"
-	"time"
 	"strings"
+	"time"
 )
 
 // StructuredLog struct for structured loggin
@@ -16,9 +16,9 @@ type StructuredLog struct {
 	Env       string `json:"env,omitempty"`
 	Server    string `json:"server,omitempty"`
 
-	Level        string      `json:"level,omitempty"`
-	Event        string      `json:"event,omitempty"`
-	Message      string      `json:"message,omitempty"`
+	Level   string `json:"level,omitempty"`
+	Event   string `json:"event,omitempty"`
+	Message string `json:"message,omitempty"`
 }
 
 const (
@@ -44,15 +44,15 @@ var (
 	//ErrorJSONMarshal is Error on json marshal/decode
 	ErrorJSONMarshal = errors.New("Logger JSON Marshal failed")
 
-	logLevels	= map[string]int{
-		"DEBUG":    LevelDebug,
-		"INFO":     LevelInfo,
-		"WARN":  	LevelWarning,
-		"ERROR":    LevelError,
-		"FATAL": 	LevelCritical,
+	logLevels = map[string]int{
+		"DEBUG": LevelDebug,
+		"INFO":  LevelInfo,
+		"WARN":  LevelWarning,
+		"ERROR": LevelError,
+		"FATAL": LevelCritical,
 	}
 
-	//ServiceName is default service name 
+	//ServiceName is default service name
 	ServiceName = ""
 
 	//LogLevel is default log Level
@@ -61,6 +61,7 @@ var (
 	// Env is default environment information
 	Env = ""
 )
+
 // New is to log with a new StructuredLog struct
 func New(level, event, msg string) (StructuredLog, error) {
 	var thelog StructuredLog

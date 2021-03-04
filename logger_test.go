@@ -9,19 +9,19 @@ import (
 )
 
 const (
-	debugMsg    = "Debug msg"
-	infoMsg     = "Info msg"
-	warningMsg  = "Warning msg"
-	errorMsg    = "Error msg"
-	fatalMsg    = "Fatal msg"
+	debugMsg   = "Debug msg"
+	infoMsg    = "Info msg"
+	warningMsg = "Warning msg"
+	errorMsg   = "Error msg"
+	fatalMsg   = "Fatal msg"
 )
 
-var logMsg	= map[string]string{
-	"DEBUG":    debugMsg,
-	"INFO":     infoMsg,
-	"WARN":		warningMsg,
-	"ERROR":    errorMsg,
-	"FATAL": 	fatalMsg,
+var logMsg = map[string]string{
+	"DEBUG": debugMsg,
+	"INFO":  infoMsg,
+	"WARN":  warningMsg,
+	"ERROR": errorMsg,
+	"FATAL": fatalMsg,
 }
 
 func TestNew(t *testing.T) {
@@ -62,8 +62,6 @@ func TestNew_fatal(t *testing.T) {
 			return
 		}
 		Fatal("crash!!!", "")
-		os.Exit(1)
-		return
 	}
 	cmd := exec.Command(os.Args[0], "-test.run=TestNew_fatal")
 	cmd.Env = append(os.Environ(), "BE_CRASHER=1")
